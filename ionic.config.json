@@ -1,0 +1,7 @@
+{
+  "name": "ion-spotify-clone",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
