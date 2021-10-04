@@ -25,6 +25,20 @@ export class Tab1Page {
       albums: jumpBackIn
     }
   ];
+
+  opts = {
+    slidesPerView: 2.4,
+    slidesOsetBefore: 20,
+    spaceBetween:20,
+    freeMode: true
+  };
+
   constructor() {}
 
+  //Helper function for image namespace
+  dasherize(string) {
+    return string.replace(/[A-Z]/g, function (char, index) {
+      return (index !== 0 ? '-' : '') + char.toLowerCase();
+    });
+  };
 }
