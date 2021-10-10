@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import recentlyPlayed from '../../assets/mockdata/recentlyPlayed.json';
 import heavyRotation from '../../assets/mockdata/heavyRotation.json';
 import jumpBackIn from '../../assets/mockdata/jumpBackIn.json';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -33,11 +34,17 @@ export class Tab1Page {
     freeMode: true
   };
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  openAlbum(album) {
+    const titleEscaped = encodeURIComponent(album.title);
+    console.log('titleEscaped: ', titleEscaped);
+    this.router.navigateByUrl(`/tabs/tab1/${titleEscaped}`);
+    }
 
   //Helper function for image namespace
   dasherize(string) {
-    return string.replace(/[A-Z]/g, function (char, index) {
+    return string.replace(/[A-Z]/g, function(char, index) {
       return (index !== 0 ? '-' : '') + char.toLowerCase();
     });
   };
