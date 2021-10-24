@@ -35,11 +35,11 @@ ion-row {
     padding-top: 40vh;
 }
 
-// ion-content {
-//     --background
-// }
+ion-content {
+    --background: linear-gradient(var(--custombg) 400px, var(--ion-color-dark) 400px);
+}
 
 .main {
     z-index: 2;
-    background: linear-gradient(var(--custombg), blue);
+    background: linear-gradient(var(--custombg) 20%, var(--ion-color-dark) 30%);
 }
