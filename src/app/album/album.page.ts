@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import albums from '../../assets/mockdata/albums'
 
 @Component({
   selector: 'app-album',
@@ -8,11 +9,21 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AlbumPage implements OnInit {
 
+  data = null;
+
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const title = this.activatedRoute.snapshot.paramMap.get('title');
     const decodedTitle = decodeURIComponent(title);
+    this.data = albums[decodedTitle];
+    console.log('this: ', this.data);
   }
 
+  //Helper function for image namespace
+  dasherize(string) {
+    return string.replace(/[A-Z]/g, function(char, index) {
+      return (index !== 0 ? '-' : '') + char.toLowerCase();
+    });
+  };
 }
